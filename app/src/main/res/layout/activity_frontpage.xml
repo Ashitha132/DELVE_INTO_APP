@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".frontpage">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELVE INTO"
+        android:textColor="#Ffffff"
+        android:textSize="45dp"/>
+
+    <TextView
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADMIN"
+        android:textSize="34dp"
+
+        android:textColor="#ffffff"/>
+
+    <ImageButton
+
+        android:layout_width="220dp"
+        android:layout_height="150dp"
+        android:id="@+id/adminid"
+        android:src="@drawable/admin2"/>
+
+
+    <ImageButton
+        android:id="@+id/surveyorid"
+        android:layout_width="220dp"
+
+        android:layout_height="180dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo" />
+
+
+
+</LinearLayout>

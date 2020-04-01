@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/i1"
+         >
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="34dp"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ASSET DETAILS"
+            android:layout_marginLeft="50dp"
+            android:textSize="40dp"
+            android:textColor="#ffffff"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:text="VEHICLE DETAILS "
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearvehicle">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Is there any  vehicles?"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/vehicles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/vehicleyes"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="Yes        "
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/vehicleno"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:orientation="horizontal"
+            android:id="@+id/vehiclelayout">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:textColorHint="#ffffff"
+                android:hint="No of vehicles"
+                android:id="@+id/vehiclenum"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:background="@drawable/buttonbackground"
+                android:id="@+id/vehicleadd"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="SAVE"
+                android:background="@drawable/buttonbackground"
+                android:id="@+id/vehiclesave"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="DELETE"
+                android:background="@drawable/buttonbackground"
+                android:id="@+id/vehicleDEL"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:orientation="horizontal"
+            android:id="@+id/vehicletitle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:id="@+id/vrhicletypetextview"
+                android:text="  Vehicle Type         " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:inputType="number"
+                android:id="@+id/vehiclenumtextview"
+                android:text="  vehicle number       " />
+
+
+
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/vehicletable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </TableLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/lineardomestic">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Is there domestic animal feeding?  "
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/domestic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/domesticyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:text="Yes                      "
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/domesticno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:text="No"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/domesticlayout"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            android:layout_marginLeft="20dp"
+            android:paddingBottom="25dp">
+
+            <CheckBox
+                android:id="@+id/cow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#ffffff"
+                android:text="Cattle    "
+                android:textColor="#ffffff" />
+
+            <CheckBox
+                android:id="@+id/sheep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#ffffff"
+                android:text="Sheep  "
+                android:textColor="#ffffff" />
+
+            <CheckBox
+                android:id="@+id/duck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#ffffff"
+                android:text="Poultry     "
+                android:textColor="#ffffff" />
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/domesticlayout2"
+            android:visibility="invisible"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#ffffff"
+                android:id="@+id/goat"
+                android:text="Goat     "
+                android:textColor="#ffffff" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#ffffff"
+                android:id="@+id/pig"
+                android:text="Pig "
+                android:textColor="#ffffff" />
+        </LinearLayout>
+        <View
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEXT"
+                android:textColor="#ffffff"
+                android:textSize="30dp"/>
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="90dp"
+                android:background="@drawable/forwardarrow"
+                android:id="@+id/assetnext"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

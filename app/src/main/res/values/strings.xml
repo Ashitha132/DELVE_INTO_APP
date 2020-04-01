@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">DELVE INTO</string>
+    <string-array name="wardno">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+
+    </string-array>
+    <item name="pensionnumber" type="id" />
+    <item name="addpension" type="id" />
+    <item name="savepension" type="id" />
+    <item name="tablelayout2" type="id" />
+    <string-array name="religion">
+        <item>HINDU</item>
+        <item>MUSLIM</item>
+        <item>CHRISTIAN</item>
+        <item>OTHERS</item>
+    </string-array>
+    <string-array name="region">
+        <item>Hilly Region</item>
+        <item>Coastal Area</item>
+        <item>Plain Area</item>
+        <item>Forestry</item>
+
+
+    </string-array>
+    <string-array name="water">
+        <item>rivers</item>
+        <item>Streams</item>
+        <item>Well</item>
+        <item>Public tap</item>
+
+    </string-array>
+    <string-array name="diseases">
+        <item>Cancer</item>
+        <item>Alzheimer</item>
+        <item>Asthma</item>
+        <item>Diabetes</item>
+        <item>Kidney Disease</item>
+
+
+    </string-array>
+    <string-array name="roof">
+        <item>Thatch</item>
+        <item>Coastal Area</item>
+        <item>Plain Area</item>
+        <item>Forestry</item>
+    </string-array>
+
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_surveylogin">Sign in</string>
+</resources>

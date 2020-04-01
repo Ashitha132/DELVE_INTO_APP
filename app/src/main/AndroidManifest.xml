@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.housepage">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/delve"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".entry_other"></activity>
+        <activity android:name=".homesurveyor" />
+        <activity android:name=".entryasset" >
+
+        </activity>
+        <activity android:name=".entryland" >
+
+        </activity>
+        <activity android:name=".entryhouse" >
+
+
+        </activity>
+        <activity android:name=".entryhome" >
+
+        </activity>
+        <activity android:name=".SearchResult" />
+        <activity android:name=".housedetails" />
+        <activity android:name=".keywordsearch" />
+        <activity android:name=".adminhome" />
+        <activity android:name=".frontpage">
+
+        </activity>
+        <activity android:name=".login" />
+        <activity android:name=".MainActivity">
+        <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

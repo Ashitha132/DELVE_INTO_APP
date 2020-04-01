@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "852408083640",
+    "firebase_url": "https://housepage-b8b4c.firebaseio.com",
+    "project_id": "housepage-b8b4c",
+    "storage_bucket": "housepage-b8b4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852408083640:android:00ca4c4c64b2d555b4404d",
+        "android_client_info": {
+          "package_name": "com.example.housepage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852408083640-d37tp7u9tn5dv9m90q9h403edq2o5qm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.housepage",
+            "certificate_hash": "4b4edecdeac90fb65ec212ac290c938e69a4070f"
+          }
+        },
+        {
+          "client_id": "852408083640-b49hnhopb3kgnptmc8ged4opfu14q5er.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALdELFBuf-DGSpbwUDnbyx7mL8OdywyJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852408083640-b49hnhopb3kgnptmc8ged4opfu14q5er.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

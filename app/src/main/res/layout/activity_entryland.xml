@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/i1"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/i1">
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="34dp"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LAND DETAILS"
+            android:layout_marginLeft="50dp"
+            android:textSize="40dp"
+            android:textColor="#ffffff"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="plot Area          :    "
+                android:layout_marginLeft="20dp"
+                android:textColor="#ffffff"
+
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:id="@+id/plot"
+                android:backgroundTint="#ffffff"
+                android:outlineAmbientShadowColor="#FFFFFF"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resident Address : "
+                android:textColor="#ffffff"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:id="@+id/raddress"
+                android:textColor="#ffffff"
+                android:lines="4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingTop="25dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0"
+                android:text="RESIDENT NAME   :        " />
+
+            <EditText
+                android:id="@+id/rname"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:backgroundTint="#ffffff"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="404dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingTop="25dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:textColor="#ffffff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="REGION          " />
+
+            <Spinner
+                android:id="@+id/regionspinner"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#BD1919"
+                android:entries="@array/region"
+                android:spinnerMode="dropdown" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearrent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Is the house rented?  "
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/rent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rentyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes    "
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/rentno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:id="@+id/linearname"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/textv"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0"
+
+                android:text="OWNER NAME   :        " />
+
+            <EditText
+                android:id="@+id/oname"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:backgroundTint="#ffffff"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearaddress"
+            android:visibility="invisible"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OWNER ADDRESS:    "
+                android:layout_marginLeft="20dp"
+                android:textColor="#ffffff"
+
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:id="@+id/oaddress"
+                android:textColor="#ffffff"
+                android:lines="3" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEXT"
+                android:textColor="#ffffff"
+                android:textSize="30dp"/>
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="90dp"
+                android:background="@drawable/forwardarrow"
+                android:id="@+id/landnext"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
