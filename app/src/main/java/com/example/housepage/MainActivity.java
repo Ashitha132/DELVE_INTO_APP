@@ -30,11 +30,15 @@ import static com.example.housepage.R.array.religion;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText addno,e1,e2,e3,e4,e5,e6,pensionno;
-    EditText edaddress,edownername,edrationcardnumber;
+    EditText addno,e1,e2,e3,e4,e5,e6,e7,pensionno;
+    EditText edrationcardnumber;
     Spinner religionspin;
     Button addmember,memberviewer,memberdelete,pensionadd,pensionsave,pensiondel;
     Button submit;
+    LinearLayout lineardisease,lineardiffer,lineardisable;
+    Button difadd,disadd,diseadd;
+    EditText difname,disname,disename;
+    Spinner disease;
 
     int memnum,n;
 
@@ -44,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
     TableRow tableRow2;
     DatabaseReference reference;
 
-    String housenumber,wardnumber,rationcardnumber,religion,aplbplvalue,castevalue;
+
+    String religion,aplbplvalue,castevalue;
     String[] membernamearray,membergenderarray,memberagearray,memberoccupationarray;
     String[] pensionernamearray,pensionnamearray;
-    String pensionvalue;
+    String pensionvalue,dapvalue,disvalue,diseasevalue;
 
 
     @Override
@@ -59,14 +64,21 @@ public class MainActivity extends AppCompatActivity {
 
         addno=(EditText)findViewById(R.id.added);
         pensionno=(EditText)findViewById(R.id.pennum);
+        difname=(EditText)findViewById(R.id.edit1);
+        disname=(EditText)findViewById(R.id.edit2);
+        disename=(EditText)findViewById(R.id.edit3);
         edrationcardnumber=(EditText)findViewById(R.id.houserationcardno);
 
 
         religionspin=(Spinner)findViewById(R.id.religionspinner);
+        disease=(Spinner)findViewById(R.id.spinnerdiseases);
         final RadioGroup pensionradio = (RadioGroup) findViewById(R.id.pensioners);
 
         final RadioGroup aplbplradio = (RadioGroup) findViewById(R.id.aplbpl);
         final RadioGroup casteradio = (RadioGroup) findViewById(R.id.caste);
+        final RadioGroup differradio = (RadioGroup) findViewById(R.id.dap);
+        final RadioGroup disableradio = (RadioGroup) findViewById(R.id.accident);
+        final RadioGroup diseaseradio = (RadioGroup) findViewById(R.id.diseasesradio);
 
         addmember=(Button) findViewById(R.id.add);
         memberviewer=(Button) findViewById(R.id.save);
@@ -75,15 +87,20 @@ public class MainActivity extends AppCompatActivity {
         memberdelete=(Button)findViewById(R.id.del);
         pensiondel=(Button)findViewById(R.id.penDEL);
         submit=(Button)findViewById(R.id.submittingall);
+        difadd=(Button)findViewById(R.id.adddap);
+        disadd=(Button)findViewById(R.id.addaccident);
+        diseadd=(Button)findViewById(R.id.addddiseases);
 
         tableLayout1=(TableLayout)findViewById(R.id.membertable);
         tableLayout2=(TableLayout)findViewById(R.id.pensiontable);
 
 
 
-        pensionerlayout=(LinearLayout)findViewById(R.id.pensionerlayout);
-        pensionerlayout=(LinearLayout)findViewById(R.id.pensionertitle);
+
         linearpen=(LinearLayout)findViewById(R.id.linearpension);
+        lineardisease=(LinearLayout)findViewById(R.id.diseaseslay);
+        lineardisable=(LinearLayout)findViewById(R.id.linear1);
+        lineardiffer=(LinearLayout)findViewById(R.id.linear2);
 
         pensionername=(TextView)findViewById(R.id.pensionernametextview);
         pensionname=(TextView)findViewById(R.id.pensionnametextview);
@@ -136,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         tableRow.addView(e4);
                         e5=new EditText(getApplicationContext());
                         e5.setHint("                 ");
-                        e4.setId(i + 4 * memnum);
+                        e5.setId(i + 4 * memnum);
                         memberviewer.setVisibility(View.VISIBLE);
                         memberdelete.setVisibility(View.VISIBLE);
 
@@ -183,24 +200,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
         pensionradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.pensionno : pensionvalue = ((RadioButton)findViewById(pensionradio.getCheckedRadioButtonId())).getText().toString();
-                                         Toast.makeText(getApplicationContext(), pensionvalue, Toast.LENGTH_SHORT).show();
-                                         break;
+                        Toast.makeText(getApplicationContext(), pensionvalue, Toast.LENGTH_SHORT).show();
+                        break;
                     case R.id.pensionyes : pensionvalue = ((RadioButton)findViewById(pensionradio.getCheckedRadioButtonId())).getText().toString();
-                                          pensionadd.setVisibility(View.VISIBLE);
-                                          pensionno.setVisibility(View.VISIBLE);
+                        pensionadd.setVisibility(View.VISIBLE);
+                        pensionno.setVisibility(View.VISIBLE);
 
-                                          break;
+                        break;
 
                 }
             }
         });
+
+
+
         pensionadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,13 +241,13 @@ public class MainActivity extends AppCompatActivity {
                         e5 = new EditText(getApplicationContext());
                         e5.setHint("                            ");
                         e5.setId(j);
-                        tableRow2.addView(e5);
+                        tableRow2.addView(e6);
                         TextView t=new TextView(getApplicationContext());
                         t.setText("          ");
                         e6 = new EditText(getApplicationContext());
                         e6.setHint("                            ");
                         e6.setId(j+n);
-                        tableRow2.addView(e6);
+                        tableRow2.addView(e7);
 
 
 
@@ -293,15 +311,98 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        differradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                switch (checkedId) {
+                    case R.id.dapno : dapvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                        Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.dapyes : dapvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                    lineardiffer.setVisibility(View.VISIBLE);
+
+                        break;
+
+                }
+
+            }
+        });
+
+        difadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String difpatient=difname.getText().toString().trim();
+                Toast.makeText(getApplicationContext(), difpatient, Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+
+        disableradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.accidentno : disvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                        Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.accidentyes : disvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                        lineardisable.setVisibility(View.VISIBLE);
+
+                        break;
+
+                }
+
+
+            }
+        });
+        disadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String dispatient=disname.getText().toString().trim();
+                Toast.makeText(getApplicationContext(), dispatient, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        diseaseradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.dapno : diseasevalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                        Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.dapyes : diseasevalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                        lineardisease.setVisibility(View.VISIBLE);
+
+                        break;
+
+                }
+
+
+            }
+        });
+        diseadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String disepatient=disename.getText().toString().trim();
+                String diseasename=disease.getSelectedItem().toString().trim();
+                Toast.makeText(getApplicationContext(), disepatient, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), diseasename, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ifam=new Intent(getApplicationContext(),entryasset.class);
                 startActivity(ifam);
-
-
-
-
 
 
 

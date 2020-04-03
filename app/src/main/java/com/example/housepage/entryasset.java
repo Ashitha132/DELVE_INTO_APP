@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class entryasset extends AppCompatActivity {
     Button nextasset,vehicleadd,vehiclesave,vehicledelete;
-    TableLayout vehtab,tablay;
+    TableLayout vehtab;
     LinearLayout vehtit,vehlayout,dom1,dom2;
     EditText vehnum,e1,e2;
     String vehiclevalue,domesticvalue;
@@ -53,6 +53,7 @@ public class entryasset extends AppCompatActivity {
                         break;
                     case R.id.vehicleyes : vehiclevalue = ((RadioButton)findViewById(vehicleradio.getCheckedRadioButtonId())).getText().toString();
                         vehlayout.setVisibility(View.VISIBLE);
+                        Log.d("aaa","a");
                         break;
 
                 }
@@ -61,7 +62,9 @@ public class entryasset extends AppCompatActivity {
         vehicleadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String no =vehnum.getText().toString().trim();
+
 
                 if(no.isEmpty())
                 {
@@ -74,9 +77,9 @@ public class entryasset extends AppCompatActivity {
 
                     vehicleadd.setEnabled(false);
 
-                    for (int i = 0; i < svehnum; i++) {
+                    for (int i =0; i < svehnum; i++) {
                         TableRow tableRow=new TableRow(getApplicationContext());
-                        tablay.addView(tableRow);
+                        vehtab.addView(tableRow);
                         e1 = new EditText(getApplicationContext());
                         e1.setHint("                         ");
                         e1.setId(i);
@@ -118,7 +121,7 @@ public class entryasset extends AppCompatActivity {
         vehicledelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tablay.removeAllViews();
+                vehtab.removeAllViews();
                 vehicleadd.setEnabled(true);
 
 
@@ -141,14 +144,11 @@ public class entryasset extends AppCompatActivity {
         });
 
 
-
-
-
         nextasset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent iasset =new Intent(getApplicationContext(),entry_other.class);
+                Intent iasset =new Intent(getApplicationContext(),entryother.class);
                 startActivity(iasset);
             }
         });

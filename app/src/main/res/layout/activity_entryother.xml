@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@drawable/back"
-    tools:context=".entry_other">
+    android:orientation="vertical"
+    tools:context=".entryother">
     <View
         android:layout_width="match_parent"
         android:layout_marginTop="34dp"
@@ -237,6 +237,7 @@
             android:layout_height="wrap_content"
             android:text="SUBMIT"
             android:background="@drawable/buttonbackground"
-            android:id="@+id/submitdetails"/>
+            android:id="@+id/subdetails"/>
     </LinearLayout>
+
 </LinearLayout>

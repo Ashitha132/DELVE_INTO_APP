@@ -11,35 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".entry_other"></activity>
+        <activity android:name=".entryother"></activity>
         <activity android:name=".homesurveyor" />
-        <activity android:name=".entryasset" >
+        <activity android:name=".entryasset">
 
         </activity>
-        <activity android:name=".entryland" >
-
-        </activity>
-        <activity android:name=".entryhouse" >
-
-
-        </activity>
-        <activity android:name=".entryhome" >
-
-        </activity>
+        <activity android:name=".entryland"></activity>
+        <activity android:name=".entryhouse"></activity>
+        <activity android:name=".entryhome"></activity>
         <activity android:name=".SearchResult" />
         <activity android:name=".housedetails" />
         <activity android:name=".keywordsearch" />
         <activity android:name=".adminhome" />
-        <activity android:name=".frontpage">
-
-        </activity>
+        <activity android:name=".frontpage"></activity>
         <activity android:name=".login" />
         <activity android:name=".MainActivity">
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -7,14 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class entry_other extends AppCompatActivity {
+public class entryother extends AppCompatActivity {
     Button sub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_entryother);
 
-        sub=(Button)findViewById(R.id.submitdetails);
+        sub=(Button)findViewById(R.id.subdetails);
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,5 +23,6 @@ public class entry_other extends AppCompatActivity {
                 startActivity(iother);
             }
         });
+
     }
 }
