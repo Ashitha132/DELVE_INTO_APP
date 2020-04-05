@@ -1,243 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/back"
-    android:orientation="vertical"
-    tools:context=".entryother">
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="34dp"
-        android:layout_height="2dp"
-        android:background="#ffffff"/>
+    android:background="@drawable/i1"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OTHER DETAILS"
-        android:layout_marginLeft="50dp"
-        android:textSize="40dp"
-        android:textColor="#ffffff"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#ffffff"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/linearrain">
-
+        android:layout_height="match_parent"
+        android:background="#68777777"
+        android:orientation="vertical"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="34dp"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="Rain harvesting?"
-            android:textSize="18dp"/>
-
-        <RadioGroup
-            android:id="@+id/rain"
+            android:text="OTHER DETAILS"
+            android:layout_marginLeft="50dp"
+            android:textSize="40dp"
+            android:textColor="#ffffff"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearrain">
 
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rainyes"
-                android:textColor="#ffffff"
+            <TextView
                 android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
                 android:layout_height="wrap_content"
-                android:text="Yes        "
-
-                />
-
-            <RadioButton
-                android:id="@+id/rainno"
                 android:textColor="#ffffff"
-                android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
+                android:text="Rain harvesting?"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/rain"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/linearwaste">
 
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="Proper waste management?"
-            android:textSize="18dp"/>
+                <RadioButton
+                    android:id="@+id/rainyes"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="Yes        "
 
-        <RadioGroup
-            android:id="@+id/waste"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rainno"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearwaste">
 
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/wasteyes"
-                android:textColor="#ffffff"
+            <TextView
                 android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
                 android:layout_height="wrap_content"
-                android:text="Yes     "
-
-                />
-
-            <RadioButton
-                android:id="@+id/wasteno"
                 android:textColor="#ffffff"
-                android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
+                android:text="Proper waste management?"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/waste"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/linearfarm">
 
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="farm at home?"
-            android:textSize="18dp"/>
+                <RadioButton
+                    android:id="@+id/wasteyes"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="Yes     "
 
-        <RadioGroup
-            android:id="@+id/farm"
+                    />
+
+                <RadioButton
+                    android:id="@+id/wasteno"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearfarm">
 
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/farmyes"
-                android:textColor="#ffffff"
+            <TextView
                 android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
                 android:layout_height="wrap_content"
-                android:text="Yes        "
-
-                />
-
-            <RadioButton
-                android:id="@+id/farmno"
                 android:textColor="#ffffff"
-                android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
+                android:text="farm at home?"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/farm"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/linearscar">
 
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="Facing water scarcity?"
-            android:textSize="18dp"/>
+                <RadioButton
+                    android:id="@+id/farmyes"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="Yes        "
 
-        <RadioGroup
-            android:id="@+id/scarcity"
+                    />
+
+                <RadioButton
+                    android:id="@+id/farmno"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearscar">
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Facing water scarcity?"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/scarcity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/scaryes"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="Yes        "
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/scarno"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/linearvehicle">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Main source of water"
+                android:textSize="18dp"/>
+            <Spinner
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerwater"
+                android:entries="@array/water"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/scaryes"
-                android:textColor="#ffffff"
+            <Button
                 android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
                 android:layout_height="wrap_content"
-                android:text="Yes        "
-
-                />
-
-            <RadioButton
-                android:id="@+id/scarno"
-                android:textColor="#ffffff"
-                android:layout_width="wrap_content"
-                android:buttonTint="#ffffff"
-                android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/linearvehicle">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="Main source of water"
-            android:textSize="18dp"/>
-        <Spinner
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerwater"
-            android:entries="@array/water"/>
-
+                android:text="  OK  "
+                android:background="@drawable/buttonbackground"
+                android:id="@+id/subdetails"/>
+        </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SUBMIT"
-            android:background="@drawable/buttonbackground"
-            android:id="@+id/subdetails"/>
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

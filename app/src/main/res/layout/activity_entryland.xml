@@ -230,24 +230,16 @@
                 android:textColor="#ffffff"
                 android:lines="3" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <TextView
+
+            <Button
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NEXT"
-                android:textColor="#ffffff"
-                android:textSize="30dp"/>
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="90dp"
-                android:background="@drawable/forwardarrow"
+                android:layout_marginTop="20dp"
+                android:text="  OK  "
+                android:background="@drawable/buttonbackground"
                 android:id="@+id/landnext"/>
-        </LinearLayout>
+
 
 
     </LinearLayout>

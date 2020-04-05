@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -16,6 +17,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class entryasset extends AppCompatActivity {
     Button nextasset,vehicleadd,vehiclesave,vehicledelete;
     TableLayout vehtab;
@@ -24,6 +27,8 @@ public class entryasset extends AppCompatActivity {
     String vehiclevalue,domesticvalue;
     String[] vehicletypearray,vehiclenumrarray;
     int svehnum;
+    CheckBox cattlecheck,sheepcheck,poultrycheck,goatcheck,pigcheck;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,12 @@ public class entryasset extends AppCompatActivity {
         vehlayout=(LinearLayout)findViewById(R.id.vehiclelayout);
         dom1=(LinearLayout)findViewById(R.id.domesticlayout);
         dom2=(LinearLayout)findViewById(R.id.domesticlayout2);
+        cattlecheck=(CheckBox)findViewById(R.id.cattle);
+        sheepcheck=(CheckBox)findViewById(R.id.sheep);
+        poultrycheck=(CheckBox)findViewById(R.id.poultry);
+        goatcheck=(CheckBox)findViewById(R.id.goat);
+        pigcheck=(CheckBox)findViewById(R.id.pig);
+        final ArrayList<String> domesticstring=new ArrayList<String>();
 
         vehnum=(EditText)findViewById(R.id.vehiclenum);
         final RadioGroup vehicleradio=(RadioGroup)findViewById(R.id.vehicles);
@@ -143,12 +154,39 @@ public class entryasset extends AppCompatActivity {
             }
         });
 
+        if(cattlecheck.isChecked())
+        {
+            domesticstring.add("cattle");
+
+        }
+        if(sheepcheck.isChecked())
+        {
+            domesticstring.add("sheep");
+        }
+        if(poultrycheck.isChecked())
+        {
+            domesticstring.add("poultry");
+        }
+        if(goatcheck.isChecked())
+        {
+            domesticstring.add("goat");
+        }
+        if(pigcheck.isChecked())
+        {
+            domesticstring.add("pig");
+        }
+
+
 
         nextasset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(String val:domesticstring)
+                {
+                    Toast.makeText(getApplicationContext(),val, Toast.LENGTH_SHORT).show();
+                }
 
-                Intent iasset =new Intent(getApplicationContext(),entryother.class);
+                Intent iasset =new Intent(getApplicationContext(),centralsubmission.class);
                 startActivity(iasset);
             }
         });

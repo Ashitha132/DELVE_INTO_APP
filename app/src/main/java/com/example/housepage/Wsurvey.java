@@ -2,11 +2,12 @@ package com.example.housepage;
 
 public class Wsurvey {
     String plotarea,residentaddress,residentname,region,plintharea,carpetarea,height,floornum,rooftype,rainharvest,waste,farm,scarcity,watersource,aplbpl,rationcardno,religion,cast;
+    String ward,house,rent,pension,differ,disable,diseases,vehicles,domestic;
 
     public Wsurvey() {
     }
 
-    public Wsurvey(String plotarea, String residentaddress, String residentname, String region, String plintharea, String carpetarea, String height, String floornum, String rooftype, String rainharvest, String waste, String farm, String scarcity, String watersource, String aplbpl, String rationcardno, String religion, String cast) {
+    public Wsurvey(String plotarea, String residentaddress, String residentname, String region, String plintharea, String carpetarea, String height, String floornum, String rooftype, String rainharvest, String waste, String farm, String scarcity, String watersource, String aplbpl, String rationcardno, String religion, String cast, String ward, String house, String rent, String pension, String differ, String disable, String diseases, String vehicles, String domestic) {
         this.plotarea = plotarea;
         this.residentaddress = residentaddress;
         this.residentname = residentname;
@@ -25,6 +26,15 @@ public class Wsurvey {
         this.rationcardno = rationcardno;
         this.religion = religion;
         this.cast = cast;
+        this.ward = ward;
+        this.house = house;
+        this.rent = rent;
+        this.pension = pension;
+        this.differ = differ;
+        this.disable = disable;
+        this.diseases = diseases;
+        this.vehicles = vehicles;
+        this.domestic = domestic;
     }
 
     public String getPlotarea() {
@@ -169,5 +179,77 @@ public class Wsurvey {
 
     public void setCast(String cast) {
         this.cast = cast;
+    }
+
+    public String getWard() {
+        return ward;
+    }
+
+    public void setWard(String ward) {
+        this.ward = ward;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+
+    public String getRent() {
+        return rent;
+    }
+
+    public void setRent(String rent) {
+        this.rent = rent;
+    }
+
+    public String getPension() {
+        return pension;
+    }
+
+    public void setPension(String pension) {
+        this.pension = pension;
+    }
+
+    public String getDiffer() {
+        return differ;
+    }
+
+    public void setDiffer(String differ) {
+        this.differ = differ;
+    }
+
+    public String getDisable() {
+        return disable;
+    }
+
+    public void setDisable(String disable) {
+        this.disable = disable;
+    }
+
+    public String getDiseases() {
+        return diseases;
+    }
+
+    public void setDiseases(String diseases) {
+        this.diseases = diseases;
+    }
+
+    public String getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(String vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public String getDomestic() {
+        return domestic;
+    }
+
+    public void setDomestic(String domestic) {
+        this.domestic = domestic;
     }
 }

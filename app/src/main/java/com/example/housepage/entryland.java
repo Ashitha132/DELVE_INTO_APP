@@ -3,6 +3,7 @@ package com.example.housepage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,12 +14,17 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class entryland extends AppCompatActivity {
     Button nextland;
     EditText plotarea,residentaddress,residentname,ownername,owneraddres;
     Spinner region;
     String rentvalue;
     LinearLayout lname,laddress;
+    DatabaseReference reference;
+    Wsurvey wsurvey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,8 @@ public class entryland extends AppCompatActivity {
         final RadioGroup rentradio=(RadioGroup)findViewById(R.id.rent);
         lname=(LinearLayout)findViewById(R.id.linearname);
         laddress=(LinearLayout)findViewById(R.id.linearaddress);
+        wsurvey=new Wsurvey();
+
 
         rentradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -62,9 +70,17 @@ public class entryland extends AppCompatActivity {
                 String soname=ownername.getText().toString().trim();
                 String soaddress=owneraddres.getText().toString().trim();
                 String sregion=region.getSelectedItem().toString().trim();
-                Toast.makeText(getApplicationContext(), splot+sraddress+srname+soaddress+soname+sregion, Toast.LENGTH_SHORT).show();
 
+                SharedPreferences.Editor editor=getSharedPreferences("landdetails",MODE_PRIVATE).edit();
+                editor.putString("splot",splot);
+                editor.putString("sraddress",sraddress);
+                editor.putString("srname",srname);
+                editor.putString("sregion",sregion);
+                editor.commit();
+                Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
 
+                Intent iland=new Intent(getApplicationContext(),centralsubmission.class);
+                startActivity(iland);
             }
         });
     }

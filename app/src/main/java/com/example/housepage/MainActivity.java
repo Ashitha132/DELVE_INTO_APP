@@ -3,6 +3,7 @@ package com.example.housepage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     int memnum,n;
 
     TableLayout tableLayout1,tableLayout2;
-    LinearLayout pensionerlayout,pensionertitle,linearpen;
+    LinearLayout pensionerlayout,pensionertitle,linearpen,membertitle;
     TextView pensionname,pensionername,membername,membergender,memberage,memberoccupation,memberaadhar;
     TableRow tableRow2;
     DatabaseReference reference;
@@ -98,17 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         linearpen=(LinearLayout)findViewById(R.id.linearpension);
+        membertitle=(LinearLayout)findViewById(R.id.membertitle);
         lineardisease=(LinearLayout)findViewById(R.id.diseaseslay);
         lineardisable=(LinearLayout)findViewById(R.id.linear1);
         lineardiffer=(LinearLayout)findViewById(R.id.linear2);
 
         pensionername=(TextView)findViewById(R.id.pensionernametextview);
         pensionname=(TextView)findViewById(R.id.pensionnametextview);
-        membername=(TextView)findViewById(R.id.membername);
-        membergender=(TextView)findViewById(R.id.membergender);
-        memberage=(TextView)findViewById(R.id.memberage);
-        memberoccupation=(TextView)findViewById(R.id.memberoccupation);
-        memberaadhar=(TextView)findViewById(R.id.memberaadhare);
 
 
 
@@ -125,12 +122,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                      memnum = Integer.parseInt(no);
-                    membername.setVisibility(View.VISIBLE);
-                    membergender.setVisibility(View.VISIBLE);
-                    memberage.setVisibility(View.VISIBLE);
-                    memberoccupation.setVisibility(View.VISIBLE);
-                    memberaadhar.setVisibility(View.VISIBLE);
+
                     addmember.setEnabled(false);
+                    membertitle.setVisibility(View.VISIBLE);
 
                     for (int i = 0; i < memnum; i++) {
                         TableRow tableRow=new TableRow(getApplicationContext());
@@ -144,16 +138,18 @@ public class MainActivity extends AppCompatActivity {
                         e2.setId(i+memnum);
                         tableRow.addView(e2);
                         e3 = new EditText(getApplicationContext());
-                        e3.setHint("           ");
+                        e3.setHint("       ");
                         e3.setId(i + 2*memnum);
                         tableRow.addView(e3);
                         e4 = new EditText(getApplicationContext());
-                        e4.setHint("                           ");
+                        e4.setHint("                   ");
                         e4.setId(i + 3 * memnum);
                         tableRow.addView(e4);
                         e5=new EditText(getApplicationContext());
                         e5.setHint("                 ");
                         e5.setId(i + 4 * memnum);
+                        tableRow.addView(e5);
+
                         memberviewer.setVisibility(View.VISIBLE);
                         memberdelete.setVisibility(View.VISIBLE);
 
@@ -186,6 +182,9 @@ public class MainActivity extends AppCompatActivity {
                     e4=(EditText)findViewById(i+3*memnum);
                     String s4=e4.getText().toString().trim();
                     memberoccupationarray[i]=s4;
+                    e5=(EditText)findViewById(i+4*memnum);
+                    String s5=e5.getText().toString().trim();
+                    memberoccupationarray[i]=s5;
                 }
 
             }
@@ -238,15 +237,15 @@ public class MainActivity extends AppCompatActivity {
                     for (int j = 200; j <n+200 ; j++) {
                         tableRow2=new TableRow(getApplicationContext());
                         tableLayout2.addView(tableRow2);
-                        e5 = new EditText(getApplicationContext());
-                        e5.setHint("                            ");
-                        e5.setId(j);
+                        e6 = new EditText(getApplicationContext());
+                        e6.setHint("                            ");
+                        e6.setId(j);
                         tableRow2.addView(e6);
                         TextView t=new TextView(getApplicationContext());
                         t.setText("          ");
-                        e6 = new EditText(getApplicationContext());
-                        e6.setHint("                            ");
-                        e6.setId(j+n);
+                        e7 = new EditText(getApplicationContext());
+                        e7.setHint("                            ");
+                        e7.setId(j+n);
                         tableRow2.addView(e7);
 
 
@@ -346,10 +345,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.accidentno : disvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.accidentno : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString();
                         Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.accidentyes : disvalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.accidentyes : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString();
                         lineardisable.setVisibility(View.VISIBLE);
 
                         break;
@@ -368,17 +367,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         diseaseradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.dapno : diseasevalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
-                        Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
+                    case R.id.diseasesno : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString();
+                        Toast.makeText(getApplicationContext(), diseasevalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.dapyes : diseasevalue = ((RadioButton)findViewById(differradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.diseasesyes : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString();
                         lineardisease.setVisibility(View.VISIBLE);
-
                         break;
 
                 }
@@ -401,7 +398,18 @@ public class MainActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ifam=new Intent(getApplicationContext(),entryasset.class);
+                religion=religionspin.getSelectedItem().toString().trim();
+                SharedPreferences.Editor editor=getSharedPreferences("familydetails",MODE_PRIVATE).edit();
+                editor.putString("religion",religion);
+                editor.putString("aplbplvalue",aplbplvalue);
+                editor.putString("castevalue",castevalue);
+                editor.putString("pensionvalue",pensionvalue);
+                editor.putString("dapvalue",dapvalue);
+                editor.putString("disvalue",disvalue);
+                editor.putString("diseasevalue",diseasevalue);
+                editor.commit();
+
+                Intent ifam=new Intent(getApplicationContext(),centralsubmission.class);
                 startActivity(ifam);
 
 

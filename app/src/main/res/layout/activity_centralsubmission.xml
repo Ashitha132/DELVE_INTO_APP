@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/i1"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/i1"
+        >
+
+
+       <Button
+           android:layout_marginTop="100dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="#777777"
+           android:id="@+id/btnland"
+           android:text="   Land Details   "/><Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+           android:layout_height="wrap_content"
+           android:id="@+id/btnhouse"
+        android:background="#777777"
+           android:text="   House Details   "/><Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+           android:layout_height="wrap_content"
+        android:background="#777777"
+           android:id="@+id/btnfamily"
+           android:text="   Land Family   "/><Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+           android:layout_height="wrap_content"
+        android:background="#777777"
+           android:id="@+id/btnasset"
+           android:text="   Asset Details   "/><Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+           android:layout_height="wrap_content"
+        android:background="#777777"
+           android:id="@+id/btnother"
+           android:text="   Other Details   "/><Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+           android:layout_height="wrap_content"
+        android:background="@drawable/buttonbackground"
+           android:id="@+id/btnupload"
+           android:text="SUBMIT"/>
+
+
+    </LinearLayout>
+</ScrollView>

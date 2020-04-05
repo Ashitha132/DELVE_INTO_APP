@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/grey1">
+    android:background="@drawable/i1">
 
 <HorizontalScrollView
     android:layout_width="wrap_content"
@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="15dp"
+        android:background="#4D777777"
         android:paddingBottom="15dp"
         android:paddingRight="15dp"
         android:paddingLeft="15dp">
@@ -98,8 +99,9 @@
                     android:text="DELETE" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 android:orientation="horizontal"
                 android:id="@+id/membertitle">
                 <TextView
@@ -107,15 +109,13 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/membername"
                     android:textColor="#ffffff"
-                    android:visibility="invisible"
-                    android:text="               Name          " />
+                    android:text="    Name          " />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/membergender"
                     android:textColor="#ffffff"
-                    android:visibility="invisible"
                     android:text="            Gender         " />
 
                 <TextView
@@ -123,23 +123,21 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/memberage"
                     android:textColor="#ffffff"
-                    android:visibility="invisible"
-                    android:text="            Age       " />
+                    android:text="   Age       " />
 
                 <TextView
                     android:id="@+id/memberoccupation"
                     android:layout_width="wrap_content"
-                    android:layout_height="7dp"
-                    android:text="           Occupation     "
-                    android:textColor="#ffffff"
-                    android:visibility="invisible" />
+                    android:layout_height="wrap_content"
+                    android:text="     Occupation     "
+                    android:textColor="#ffffff" />
                 <TextView
                     android:id="@+id/memberaadhare"
                     android:layout_width="wrap_content"
-                    android:layout_height="7dp"
-                    android:text="           Aadhar     "
+                    android:layout_height="wrap_content"
+                    android:text="     Aadhar     "
                     android:textColor="#ffffff"
-                    android:visibility="invisible" />
+                     />
 
 
 
@@ -643,15 +641,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:hint="Name"
-                android:textColorHint="#ffffff"
                 android:textColor="#ffffff"
-                android:backgroundTint="#ffffff"
-                android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="20dp" />
             <Spinner
                 android:layout_width="170dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerdiseases"
                 android:entries="@array/diseases"/>
             <Button
@@ -672,7 +667,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SUBMIT"
+                android:text="  OK  "
                 android:layout_marginLeft="200dp"
                 android:background="@drawable/buttonbackground"
                 android:id="@+id/submittingall"/>
