@@ -76,6 +76,7 @@ public class entryland extends AppCompatActivity {
                 editor.putString("sraddress",sraddress);
                 editor.putString("srname",srname);
                 editor.putString("sregion",sregion);
+                editor.putString("srent",rentvalue);
                 editor.commit();
                 Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
 

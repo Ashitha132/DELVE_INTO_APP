@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,13 +55,11 @@ public class entryhome extends AppCompatActivity {
                         }
                         else
                         {
-                            wsurvey.setWard(wno);
-                            wsurvey.setHouse(hno);
-                            refer= FirebaseDatabase.getInstance().getReference().child("survey").child(wno).child(hno);
-                            refer.setValue(wsurvey);
+                            SharedPreferences.Editor editor=getSharedPreferences("wardhouse",MODE_PRIVATE).edit();
+                            editor.putString("sward",wno);
+                            editor.putString("shouse",hno);
+                            editor.commit();
                             Intent icheck =new Intent(getApplicationContext(),centralsubmission.class);
-                            icheck.putExtra("wardnum",wno);
-                            icheck.putExtra("housenum",hno);
                             startActivity(icheck);
 
                         }

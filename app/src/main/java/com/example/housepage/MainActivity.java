@@ -399,10 +399,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 religion=religionspin.getSelectedItem().toString().trim();
+                String ration=edrationcardnumber.getText().toString().trim();
                 SharedPreferences.Editor editor=getSharedPreferences("familydetails",MODE_PRIVATE).edit();
                 editor.putString("religion",religion);
                 editor.putString("aplbplvalue",aplbplvalue);
                 editor.putString("castevalue",castevalue);
+                editor.putString("rationvalue",ration);
                 editor.putString("pensionvalue",pensionvalue);
                 editor.putString("dapvalue",dapvalue);
                 editor.putString("disvalue",disvalue);

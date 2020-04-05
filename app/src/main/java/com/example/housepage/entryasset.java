@@ -3,6 +3,7 @@ package com.example.housepage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -185,6 +186,11 @@ public class entryasset extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),val, Toast.LENGTH_SHORT).show();
                 }
+
+                SharedPreferences.Editor editor=getSharedPreferences("assetdetails",MODE_PRIVATE).edit();
+                editor.putString("vehicle",vehiclevalue);
+                editor.putString("domestic",domesticvalue);
+                editor.commit();
 
                 Intent iasset =new Intent(getApplicationContext(),centralsubmission.class);
                 startActivity(iasset);
