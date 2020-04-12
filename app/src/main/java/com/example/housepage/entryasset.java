@@ -18,16 +18,23 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class entryasset extends AppCompatActivity {
     Button nextasset,vehicleadd,vehiclesave,vehicledelete;
     TableLayout vehtab;
     LinearLayout vehtit,vehlayout,dom1,dom2;
-    EditText vehnum,e1,e2;
+    EditText vehnum,e1,e2,e3;
     String vehiclevalue,domesticvalue;
-    String[] vehicletypearray,vehiclenumrarray;
+    String[] vehicletypearray,vehiclenumrarray,vehicleownerarray;
+    ArrayList<String > domesticstring;
+    Addvehicle addvehicleob;
     int svehnum;
+    String wardnumber,housenumber;
+    DatabaseReference referee;
     CheckBox cattlecheck,sheepcheck,poultrycheck,goatcheck,pigcheck;
 
 
@@ -49,21 +56,26 @@ public class entryasset extends AppCompatActivity {
         poultrycheck=(CheckBox)findViewById(R.id.poultry);
         goatcheck=(CheckBox)findViewById(R.id.goat);
         pigcheck=(CheckBox)findViewById(R.id.pig);
-        final ArrayList<String> domesticstring=new ArrayList<String>();
+         domesticstring=new ArrayList<String>();
+         addvehicleob=new Addvehicle();
 
         vehnum=(EditText)findViewById(R.id.vehiclenum);
         final RadioGroup vehicleradio=(RadioGroup)findViewById(R.id.vehicles);
         final RadioGroup domesticradio=(RadioGroup)findViewById(R.id.domestic);
+        SharedPreferences sharedPreference=getSharedPreferences("wardhouse",MODE_PRIVATE);
+        wardnumber=sharedPreference.getString("sward",null);
+        housenumber=sharedPreference.getString("shouse",null);
+
 
 
         vehicleradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.vehicleno : vehiclevalue = ((RadioButton)findViewById(vehicleradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.vehicleno : vehiclevalue = ((RadioButton)findViewById(vehicleradio.getCheckedRadioButtonId())).getText().toString().trim();
                         Toast.makeText(getApplicationContext(), vehiclevalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.vehicleyes : vehiclevalue = ((RadioButton)findViewById(vehicleradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.vehicleyes : vehiclevalue = ((RadioButton)findViewById(vehicleradio.getCheckedRadioButtonId())).getText().toString().trim();
                         vehlayout.setVisibility(View.VISIBLE);
                         Log.d("aaa","a");
                         break;
@@ -86,7 +98,6 @@ public class entryasset extends AppCompatActivity {
                 else {
                     svehnum = Integer.parseInt(no);
                     vehtit.setVisibility(View.VISIBLE);
-
                     vehicleadd.setEnabled(false);
 
                     for (int i =0; i < svehnum; i++) {
@@ -100,6 +111,10 @@ public class entryasset extends AppCompatActivity {
                         e2.setHint("                 ");
                         e2.setId(i+svehnum);
                         tableRow.addView(e2);
+                        e3 = new EditText(getApplicationContext());
+                        e3.setHint("                 ");
+                        e3.setId(i+2*svehnum);
+                        tableRow.addView(e3);
 
                         vehiclesave.setVisibility(View.VISIBLE);
                         vehicledelete.setVisibility(View.VISIBLE);
@@ -117,6 +132,7 @@ public class entryasset extends AppCompatActivity {
 
                 vehicletypearray =new String[svehnum];
                 vehiclenumrarray =new String[svehnum];
+                vehicleownerarray =new String[svehnum];
 
                 for(int i=0;i<svehnum;i++)
                 {
@@ -126,6 +142,9 @@ public class entryasset extends AppCompatActivity {
                     e2=(EditText)findViewById(i+svehnum);
                     String s2=e2.getText().toString().trim();
                     vehiclenumrarray[i]=s2;
+                    e3=(EditText)findViewById(i+2*svehnum);
+                    String s3=e3.getText().toString().trim();
+                    vehicleownerarray[i]=s3;
                 }
 
             }
@@ -143,10 +162,10 @@ public class entryasset extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.domesticno : domesticvalue = ((RadioButton)findViewById(domesticradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.domesticno : domesticvalue = ((RadioButton)findViewById(domesticradio.getCheckedRadioButtonId())).getText().toString().trim();
                         Toast.makeText(getApplicationContext(), domesticvalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.domesticyes : domesticvalue = ((RadioButton)findViewById(domesticradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.domesticyes : domesticvalue = ((RadioButton)findViewById(domesticradio.getCheckedRadioButtonId())).getText().toString().trim();
                         dom1.setVisibility(View.VISIBLE);
                         dom2.setVisibility(View.VISIBLE);
                         break;
@@ -155,37 +174,52 @@ public class entryasset extends AppCompatActivity {
             }
         });
 
-        if(cattlecheck.isChecked())
-        {
-            domesticstring.add("cattle");
-
-        }
-        if(sheepcheck.isChecked())
-        {
-            domesticstring.add("sheep");
-        }
-        if(poultrycheck.isChecked())
-        {
-            domesticstring.add("poultry");
-        }
-        if(goatcheck.isChecked())
-        {
-            domesticstring.add("goat");
-        }
-        if(pigcheck.isChecked())
-        {
-            domesticstring.add("pig");
-        }
 
 
 
         nextasset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if(cattlecheck.isChecked())
+                {
+                    domesticstring.add("cattle");
+
+                }
+                if(sheepcheck.isChecked())
+                {
+                    domesticstring.add("sheep");
+                }
+                if(poultrycheck.isChecked())
+                {
+                    domesticstring.add("poultry");
+                }
+                if(goatcheck.isChecked())
+                {
+                    domesticstring.add("goat");
+                }
+                if(pigcheck.isChecked())
+                {
+                    domesticstring.add("pig");
+                }
+
                 for(String val:domesticstring)
                 {
-                    Toast.makeText(getApplicationContext(),val, Toast.LENGTH_SHORT).show();
+                    referee = FirebaseDatabase.getInstance().getReference().child("survey").child(wardnumber).child(housenumber).child("domestic").child(val);
+                    referee.setValue(val);
+
                 }
+
+                for(int i=0;i<svehnum;i++)
+                {
+                    addvehicleob.setVehicletype(vehicletypearray[i]);
+                    addvehicleob.setVehiclenum(vehiclenumrarray[i]);
+                    addvehicleob.setVehicleowner(vehicleownerarray[i]);
+                    referee = FirebaseDatabase.getInstance().getReference().child("survey").child(wardnumber).child(housenumber).child("vehicle").child(vehicletypearray[i]);
+                    referee.setValue(addvehicleob);
+                }
+
 
                 SharedPreferences.Editor editor=getSharedPreferences("assetdetails",MODE_PRIVATE).edit();
                 editor.putString("vehicle",vehiclevalue);

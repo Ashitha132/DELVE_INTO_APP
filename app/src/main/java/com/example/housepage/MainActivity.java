@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -28,32 +29,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.housepage.R.array.religion;
+import static com.example.housepage.R.array.wardno;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText addno,e1,e2,e3,e4,e5,e6,e7,pensionno;
+    EditText addno,e1,e2,e3,e4,e5,e6,e7,e8,pensionno;
     EditText edrationcardnumber;
     Spinner religionspin;
     Button addmember,memberviewer,memberdelete,pensionadd,pensionsave,pensiondel;
     Button submit;
     LinearLayout lineardisease,lineardiffer,lineardisable;
-    Button difadd,disadd,diseadd;
     EditText difname,disname,disename;
     Spinner disease;
+    Addmember addmemberob;
+    Addpension addpensionob;
 
-    int memnum,n;
+    public int memnum,n;
 
     TableLayout tableLayout1,tableLayout2;
     LinearLayout pensionerlayout,pensionertitle,linearpen,membertitle;
-    TextView pensionname,pensionername,membername,membergender,memberage,memberoccupation,memberaadhar;
+    TextView pensionname,pensionername,pensionamount;
     TableRow tableRow2;
     DatabaseReference reference;
 
 
     String religion,aplbplvalue,castevalue;
-    String[] membernamearray,membergenderarray,memberagearray,memberoccupationarray;
-    String[] pensionernamearray,pensionnamearray;
-    String pensionvalue,dapvalue,disvalue,diseasevalue;
+    String[] membernamearray,membergenderarray,memberagearray,memberoccupationarray,memberaadhararray;
+    String[] pensionernamearray,pensionnamearray,pensionamountarray;
+    String pensionvalue,dapvalue,disvalue,diseasevalue,wardnumber,housenumber;
 
 
     @Override
@@ -69,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
         disname=(EditText)findViewById(R.id.edit2);
         disename=(EditText)findViewById(R.id.edit3);
         edrationcardnumber=(EditText)findViewById(R.id.houserationcardno);
-
-
+        addmemberob=new Addmember();
+        addpensionob=new Addpension();
         religionspin=(Spinner)findViewById(R.id.religionspinner);
         disease=(Spinner)findViewById(R.id.spinnerdiseases);
         final RadioGroup pensionradio = (RadioGroup) findViewById(R.id.pensioners);
@@ -88,9 +91,7 @@ public class MainActivity extends AppCompatActivity {
         memberdelete=(Button)findViewById(R.id.del);
         pensiondel=(Button)findViewById(R.id.penDEL);
         submit=(Button)findViewById(R.id.submittingall);
-        difadd=(Button)findViewById(R.id.adddap);
-        disadd=(Button)findViewById(R.id.addaccident);
-        diseadd=(Button)findViewById(R.id.addddiseases);
+
 
         tableLayout1=(TableLayout)findViewById(R.id.membertable);
         tableLayout2=(TableLayout)findViewById(R.id.pensiontable);
@@ -106,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
 
         pensionername=(TextView)findViewById(R.id.pensionernametextview);
         pensionname=(TextView)findViewById(R.id.pensionnametextview);
+        pensionamount=(TextView)findViewById(R.id.pensionamounttextview);
+        SharedPreferences sharedPreferences=getSharedPreferences("wardhouse",MODE_PRIVATE);
+        wardnumber=sharedPreferences.getString("sward",null);
+        housenumber=sharedPreferences.getString("shouse",null);
 
 
 
@@ -168,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                  membergenderarray =new String[memnum];
                  memberagearray =new String[memnum];
                  memberoccupationarray =new String[memnum];
+                 memberaadhararray =new String[memnum];
                 for(int i=0;i<memnum;i++)
                 {
                     e1=(EditText)findViewById(i);
@@ -184,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                     memberoccupationarray[i]=s4;
                     e5=(EditText)findViewById(i+4*memnum);
                     String s5=e5.getText().toString().trim();
-                    memberoccupationarray[i]=s5;
+                    memberaadhararray[i]=s5;
                 }
 
             }
@@ -233,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     pensionadd.setEnabled(false);
                     pensionername.setVisibility(View.VISIBLE);
                     pensionname.setVisibility(View.VISIBLE);
+                    pensionamount.setVisibility(View.VISIBLE);
 
                     for (int j = 200; j <n+200 ; j++) {
                         tableRow2=new TableRow(getApplicationContext());
@@ -247,6 +254,10 @@ public class MainActivity extends AppCompatActivity {
                         e7.setHint("                            ");
                         e7.setId(j+n);
                         tableRow2.addView(e7);
+                        e8 = new EditText(getApplicationContext());
+                        e8.setHint("                            ");
+                        e8.setId(j+2*n);
+                        tableRow2.addView(e8);
 
 
 
@@ -268,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
 
                 pensionernamearray =new String[n];
                 pensionnamearray =new String[n];
+                pensionamountarray=new String[n];
                 for(int j=0;j<n;j++) {
 
                         e1 = (EditText) findViewById(j+200);
@@ -276,6 +288,9 @@ public class MainActivity extends AppCompatActivity {
                         e2 = (EditText) findViewById(j +200+ n);
                         String s2 = e2.getText().toString().trim();
                         pensionnamearray[j] = s2;
+                        e2 = (EditText) findViewById(j +200+2*n);
+                        String s3 = e3.getText().toString().trim();
+                        pensionamountarray[j] = s3;
 
                     }
 
@@ -329,26 +344,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        difadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                String difpatient=difname.getText().toString().trim();
-                Toast.makeText(getApplicationContext(), difpatient, Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
 
 
         disableradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.accidentno : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.accidentno : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString().trim();
                         Toast.makeText(getApplicationContext(), dapvalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.accidentyes : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.accidentyes : disvalue = ((RadioButton)findViewById(disableradio.getCheckedRadioButtonId())).getText().toString().trim();
                         lineardisable.setVisibility(View.VISIBLE);
 
                         break;
@@ -358,23 +364,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        disadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String dispatient=disname.getText().toString().trim();
-                Toast.makeText(getApplicationContext(), dispatient, Toast.LENGTH_SHORT).show();
 
-            }
-        });
 
         diseaseradio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.diseasesno : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.diseasesno : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString().trim();
                         Toast.makeText(getApplicationContext(), diseasevalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.diseasesyes : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.diseasesyes : diseasevalue = ((RadioButton)findViewById(diseaseradio.getCheckedRadioButtonId())).getText().toString().trim();
                         lineardisease.setVisibility(View.VISIBLE);
                         break;
 
@@ -383,21 +382,36 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        diseadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String disepatient=disename.getText().toString().trim();
-                String diseasename=disease.getSelectedItem().toString().trim();
-                Toast.makeText(getApplicationContext(), disepatient, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), diseasename, Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                for(int i=0;i<memnum;i++)
+                {
+                    addmemberob.setMembername(membernamearray[i]);
+                    addmemberob.setMembergender(membergenderarray[i]);
+                    addmemberob.setMemberage(memberagearray[i]);
+                    addmemberob.setMemberoccupation(memberoccupationarray[i]);
+                    addmemberob.setMemberaadhar(memberaadhararray[i]);
+                    reference=FirebaseDatabase.getInstance().getReference().child("survey").child(wardnumber).child(housenumber).child("members").child(membernamearray[i]);
+                    reference.setValue(addmemberob);
+                }
+                for ( int j = 0; j < n; j++) {
+                    addpensionob.setPensionername(pensionernamearray[j]);
+                    addpensionob.setPensionname(pensionnamearray[j]);
+                    addpensionob.setPensionamount(pensionamountarray[j]);
+                    reference = FirebaseDatabase.getInstance().getReference().child("survey").child(wardnumber).child(housenumber).child("pension").child(pensionernamearray[j]);
+                    reference.setValue(addpensionob);
+
+                }
+
+                String sdifname=difname.getText().toString().trim();
+                String sdisname=disname.getText().toString().trim();
+                String sdisename=disename.getText().toString().trim();
+                String sdiseases=disease.getSelectedItem().toString().trim();
                 religion=religionspin.getSelectedItem().toString().trim();
                 String ration=edrationcardnumber.getText().toString().trim();
                 SharedPreferences.Editor editor=getSharedPreferences("familydetails",MODE_PRIVATE).edit();
@@ -409,6 +423,11 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("dapvalue",dapvalue);
                 editor.putString("disvalue",disvalue);
                 editor.putString("diseasevalue",diseasevalue);
+                    editor.putString("difname", sdifname);
+                    editor.putString("disname", sdisname);
+                    editor.putString("disename", sdisename);
+                    editor.putString("disease", sdiseases);
+
                 editor.commit();
 
                 Intent ifam=new Intent(getApplicationContext(),centralsubmission.class);

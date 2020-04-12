@@ -1,55 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/i1"
+    android:background="@drawable/yo"
     xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/i1"
+        android:background="@drawable/yo"
         >
-
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_marginLeft="5dp"
+            android:background="#65199EB6"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
        <Button
-           android:layout_marginTop="100dp"
+           android:layout_marginTop="40dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="#777777"
+           android:background="#5B316177"
            android:id="@+id/btnland"
            android:text="   Land Details   "/><Button
            android:layout_width="wrap_content"
         android:layout_marginTop="50dp"
            android:layout_height="wrap_content"
            android:id="@+id/btnhouse"
-        android:background="#777777"
+            android:background="#5B316177"
            android:text="   House Details   "/><Button
            android:layout_width="wrap_content"
+
         android:layout_marginTop="50dp"
            android:layout_height="wrap_content"
-        android:background="#777777"
+            android:background="#5B316177"
            android:id="@+id/btnfamily"
-           android:text="   Land Family   "/><Button
+           android:text="    Family details   "/><Button
            android:layout_width="wrap_content"
         android:layout_marginTop="50dp"
            android:layout_height="wrap_content"
-        android:background="#777777"
+            android:background="#5B316177"
            android:id="@+id/btnasset"
            android:text="   Asset Details   "/><Button
            android:layout_width="wrap_content"
         android:layout_marginTop="50dp"
            android:layout_height="wrap_content"
-        android:background="#777777"
+            android:background="#5B316177"
            android:id="@+id/btnother"
-           android:text="   Other Details   "/><Button
+           android:text="   Other Details   "/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:orientation="horizontal">
+
+        <Button
            android:layout_width="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
            android:layout_height="wrap_content"
         android:background="@drawable/buttonbackground"
            android:id="@+id/btnupload"
            android:text="SUBMIT"/>
+            <Button
+           android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+           android:layout_height="wrap_content"
+        android:background="@drawable/buttonbackground"
+                android:layout_marginLeft="30dp"
+           android:id="@+id/btnback"
+           android:text="BACK"/>
+        </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
 
-
-    </LinearLayout>
 </ScrollView>

@@ -48,10 +48,10 @@ public class entryland extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId)
                 {
-                    case R.id.rentno : rentvalue = ((RadioButton)findViewById(rentradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.rentno : rentvalue = ((RadioButton)findViewById(rentradio.getCheckedRadioButtonId())).getText().toString().trim();
                         Toast.makeText(getApplicationContext(), rentvalue, Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.rentyes : rentvalue = ((RadioButton)findViewById(rentradio.getCheckedRadioButtonId())).getText().toString();
+                    case R.id.rentyes : rentvalue = ((RadioButton)findViewById(rentradio.getCheckedRadioButtonId())).getText().toString().trim();
                         lname.setVisibility(View.VISIBLE);
                         laddress.setVisibility(View.VISIBLE);
 
@@ -77,6 +77,12 @@ public class entryland extends AppCompatActivity {
                 editor.putString("srname",srname);
                 editor.putString("sregion",sregion);
                 editor.putString("srent",rentvalue);
+                if(rentvalue.equals("yes"))
+                {
+                    editor.putString("soname",soname);
+                    editor.putString("soaddress",soaddress);
+
+                }
                 editor.commit();
                 Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
 

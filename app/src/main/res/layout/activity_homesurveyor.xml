@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/i1"
+    android:background="@drawable/yo"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <LinearLayout
@@ -9,11 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/i1"
+        android:background="@drawable/yo"
         tools:context=".homesurveyor">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:background="#65199EB6"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="20dp">
 
         <LinearLayout
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -21,10 +30,10 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
+                android:textSize="18dp"
                 android:textStyle="italic"
                 android:textColor="#ffffff"
-                android:text="       new details entry"/>
+                android:text="       NEW DETAILS ENTRY"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,7 +41,7 @@
                 android:background="@drawable/forwardarrow"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -40,46 +49,47 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
+                android:textSize="18dp"
                 android:textStyle="italic"
                 android:textColor="#ffffff"
-                android:text="       update details"/>
+                android:text="       UDDATE DETAILS       "/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/updates"
                 android:background="@drawable/forwardarrow"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <Button
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/mmmm"/>
+            <LinearLayout
+                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/logout"
-                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
 
-                android:background="@drawable/backwardarrow"/>
-            <TextView
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/logout"
+                    android:layout_marginLeft="20dp"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:textStyle="italic"
-                android:textColor="#ffffff"
-                android:text="Log out"/>
+                    android:background="@drawable/backwardarrow"/>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="#ffffff"
+                    android:text="LOG OUT"/>
+            </LinearLayout>
         </LinearLayout>
-
-        <ImageButton
-            android:layout_width="336dp"
-            android:layout_height="278dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="40dp"
-            android:background="@drawable/mmmm"/>
-
 
     </LinearLayout>
 </ScrollView>

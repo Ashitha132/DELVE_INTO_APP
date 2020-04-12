@@ -1,23 +1,15 @@
 package com.example.housepage;
 
 public class Addpension {
-    String pensionvalue,pensionername,pensionname;
+    String pensionername, pensionname,pensionamount;
 
     public Addpension() {
     }
 
-    public Addpension(String pensionvalue, String pensionername, String pensionname) {
-        this.pensionvalue = pensionvalue;
+    public Addpension(String pensionername, String pensionname, String pensionamount) {
         this.pensionername = pensionername;
         this.pensionname = pensionname;
-    }
-
-    public String getPensionvalue() {
-        return pensionvalue;
-    }
-
-    public void setPensionvalue(String pensionvalue) {
-        this.pensionvalue = pensionvalue;
+        this.pensionamount = pensionamount;
     }
 
     public String getPensionername() {
@@ -34,5 +26,13 @@ public class Addpension {
 
     public void setPensionname(String pensionname) {
         this.pensionname = pensionname;
+    }
+
+    public String getPensionamount() {
+        return pensionamount;
+    }
+
+    public void setPensionamount(String pensionamount) {
+        this.pensionamount = pensionamount;
     }
 }

@@ -2,12 +2,12 @@ package com.example.housepage;
 
 public class Wsurvey {
     String plotarea,residentaddress,residentname,region,plintharea,carpetarea,height,floornum,rooftype,rainharvest,waste,farm,scarcity,watersource,aplbpl,rationcardno,religion,cast;
-    String ward,house,rent,pension,differ,disable,diseases,vehicles,domestic;
+    String ward,house,rent,pension,differ,disable,diseases,vehicles,domestic,ownername,owneraddress,differname,disablename,patientname,disease;
 
     public Wsurvey() {
     }
 
-    public Wsurvey(String plotarea, String residentaddress, String residentname, String region, String plintharea, String carpetarea, String height, String floornum, String rooftype, String rainharvest, String waste, String farm, String scarcity, String watersource, String aplbpl, String rationcardno, String religion, String cast, String ward, String house, String rent, String pension, String differ, String disable, String diseases, String vehicles, String domestic) {
+    public Wsurvey(String plotarea, String residentaddress, String residentname, String region, String plintharea, String carpetarea, String height, String floornum, String rooftype, String rainharvest, String waste, String farm, String scarcity, String watersource, String aplbpl, String rationcardno, String religion, String cast, String ward, String house, String rent, String pension, String differ, String disable, String diseases, String vehicles, String domestic, String ownername, String owneraddress, String differname, String disablename, String patientname, String disease) {
         this.plotarea = plotarea;
         this.residentaddress = residentaddress;
         this.residentname = residentname;
@@ -35,6 +35,12 @@ public class Wsurvey {
         this.diseases = diseases;
         this.vehicles = vehicles;
         this.domestic = domestic;
+        this.ownername = ownername;
+        this.owneraddress = owneraddress;
+        this.differname = differname;
+        this.disablename = disablename;
+        this.patientname = patientname;
+        this.disease = disease;
     }
 
     public String getPlotarea() {
@@ -251,5 +257,53 @@ public class Wsurvey {
 
     public void setDomestic(String domestic) {
         this.domestic = domestic;
+    }
+
+    public String getOwnername() {
+        return ownername;
+    }
+
+    public void setOwnername(String ownername) {
+        this.ownername = ownername;
+    }
+
+    public String getOwneraddress() {
+        return owneraddress;
+    }
+
+    public void setOwneraddress(String owneraddress) {
+        this.owneraddress = owneraddress;
+    }
+
+    public String getDiffername() {
+        return differname;
+    }
+
+    public void setDiffername(String differname) {
+        this.differname = differname;
+    }
+
+    public String getDisablename() {
+        return disablename;
+    }
+
+    public void setDisablename(String disablename) {
+        this.disablename = disablename;
+    }
+
+    public String getPatientname() {
+        return patientname;
+    }
+
+    public void setPatientname(String patientname) {
+        this.patientname = patientname;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public void setDisease(String disease) {
+        this.disease = disease;
     }
 }

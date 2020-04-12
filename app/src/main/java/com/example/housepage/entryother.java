@@ -73,7 +73,6 @@ public class entryother extends AppCompatActivity {
                 editor.putString("scarcityvalue",scarcityvalue);
                 editor.putString("watervalue",WATERVALUE);
                 editor.commit();
-
                 Intent iother=new Intent(getApplicationContext(),centralsubmission.class);
                 startActivity(iother);
             }

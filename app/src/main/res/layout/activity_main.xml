@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/i1">
+    android:background="@drawable/yo">
 
 <HorizontalScrollView
     android:layout_width="wrap_content"
@@ -417,6 +417,13 @@
                 android:textColor="#ffffff"
                 android:id="@+id/pensionnametextview"
                 android:text="  Pension Name         " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:textColor="#ffffff"
+                android:id="@+id/pensionamounttextview"
+                android:text="  Pension Amount         " />
 
 
         </LinearLayout>
@@ -498,12 +505,6 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ADD"
-                android:background="@drawable/buttonbackground"
-                android:id="@+id/adddap"/>
 
         </LinearLayout>
         <LinearLayout
@@ -572,12 +573,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ADD"
-                android:background="@drawable/buttonbackground"
-                android:id="@+id/addaccident"/>
+
 
         </LinearLayout>
         <LinearLayout
@@ -649,12 +645,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinnerdiseases"
                 android:entries="@array/diseases"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ADD"
-                android:background="@drawable/buttonbackground"
-                android:id="@+id/addddiseases"/>
 
         </LinearLayout>
 
